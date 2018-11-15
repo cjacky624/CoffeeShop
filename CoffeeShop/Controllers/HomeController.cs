@@ -53,5 +53,37 @@ namespace CoffeeShop.Controllers
                 }
             }
         }
+        public ActionResult AddItem()
+        {
+            return View();
+        }
+
+        public ActionResult FindItem(string name)
+        {
+            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
+            //find item
+            Item ItemToEdit = ORM.Items.Find(name);
+
+            if (ItemToEdit == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.ItemToEdit = ItemToEdit;
+            return View();
+
+        }
+        public ActionResult DeleteItem(string name)
+        {
+            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
+
+            Item ItemToDelete = ORM.Items.Find(name); 
+
+            ORM.Items.Remove(ItemToDelete);
+
+            ORM.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
