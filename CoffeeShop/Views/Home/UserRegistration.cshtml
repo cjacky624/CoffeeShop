@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "UserRegistration";
 }
-
 <h2>UserRegistration</h2>
 <body>
     <form name="signup" method="post" action="/Home/AddUser" onsubmit="return Validate()">
@@ -19,10 +18,23 @@
             <span id="lnMessage"></span>
         </label>        <br />
         <label class="control-label">
+            Birthday:
+            <input type="date" name="Birthday" class="form-control" id="bd" oninput="validBD()" onchange="validBD()" />
+            <span id="bdMessage"></span>
+        </label>        <br />
+        <label class="control-label">
             Email:
             <input type="email" name="Email" class="form-control" id="email" onkeyup="validEM()" />
             <span id="emMessage"></span>
         </label>        <br />
+        <label class="control-label">
+            Confirm Email:
+            <input type="email" name="ConfirmEmail" class="form-control" id="cfem" onkeyup="check_match()" />
+            <span id="message"></span>
+        </label>        <br />
+
+
+        <input type="submit" value="Sign Up!" class="btn-default" />
     </form>
-    <script src="~/Scripts/myScript.js" type="text/javascript"></script>
+    <script src="~/Scripts/JackyScripts.js" type="text/javascript"></script>
 </body>

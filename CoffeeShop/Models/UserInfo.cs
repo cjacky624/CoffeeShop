@@ -9,7 +9,7 @@ namespace CoffeeShop.Models
     public class UserInfo
     {
         [Required] 
-        [RegularExpression("^[a-zA-Z]{2,}$")]
+        [RegularExpression("^[A-Z]+[A-z]{1,30}$")]
         public string FirstName { get; set; }
 
         [Required]
@@ -19,15 +19,18 @@ namespace CoffeeShop.Models
 
         public string Email { get; set; }
 
+        public DateTime Birthday { get; set; }
+
         public UserInfo()
         {
             FirstName = "";
             LastName = "";
         }
-        public UserInfo(string firstName, string lastName, string eMail)
+        public UserInfo(string firstName, string lastName, DateTime bDay, string eMail)
         {
             FirstName = firstName;
             LastName = lastName;
+            Birthday = bDay;
             Email = eMail;
         }
 

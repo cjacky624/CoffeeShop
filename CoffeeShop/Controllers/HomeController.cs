@@ -41,6 +41,7 @@ namespace CoffeeShop.Controllers
                     ViewBag.ConfMessage = "Welcome " + newUser.FirstName;
                     ViewBag.Name = $"Name: {newUser.FirstName} {newUser.LastName}";
                     ViewBag.Email = $"Email: {newUser.Email}";
+                    ViewBag.Birthday = $"Birthday: {newUser.Birthday}";
 
                     return View("Summary");
                 }
@@ -48,7 +49,7 @@ namespace CoffeeShop.Controllers
                 else
                 {
                     ViewBag.Error = "Invalid. Please try again.";
-                    return View("Error");
+                    return View("UserRegistration");
                 }
             }
         }
